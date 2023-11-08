@@ -25,7 +25,7 @@ const mongodb = async () => {
 mongodb();
 
 ///post method
-app.post('/api/link', async(req, res) => {
+app.post('/link', async(req, res) => {
   const { url, slug } = req.body;
   const randomSlug = Math.random().toString(36).substring(2, 7)
 
@@ -56,6 +56,25 @@ app.post('/api/link', async(req, res) => {
 
   }
 
+})
+
+//get
+
+app.get('/:slug', async(req,res)=>{
+
+  const {slug}= req.params;
+
+  const link = await Link.findOne({slug:slug});
+
+  if(!link){
+    return res.json({
+      success:false,
+      message:"link not found"
+
+    })
+  }
+
+  res.redirect(link.url)
 })
 
 app.listen(PORT, () => {
