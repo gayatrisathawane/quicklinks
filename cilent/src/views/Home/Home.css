@@ -1,0 +1,51 @@
+.input-main-container{
+    background-color: white;
+   padding: 10px;
+   border-radius: 5px;
+}
+
+.user-input{
+    width: 500px;
+    padding: 15px 15px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    outline: none;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.btn-url-generator{
+    border: none;
+    background-color: green;
+    color: white;
+    text-align: center;
+    width: 500px;
+    padding: 15px 30px;
+    display: block;
+    border-radius: 5px;
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+.shorturl-input{
+    width: 470px;
+    padding: 15px 15px;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    outline: none;
+    font-size: 22px;
+    margin-top: 20px;
+
+}
+
+.links-div {
+  
+    overflow-y: scroll;
+    height: 600px;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+.links-div::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+

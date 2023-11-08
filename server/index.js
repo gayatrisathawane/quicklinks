@@ -27,6 +27,7 @@ mongodb();
 ///post method
 app.post('/link', async(req, res) => {
   const { url, slug } = req.body;
+
   const randomSlug = Math.random().toString(36).substring(2, 7)
 
   const link = new Link({
@@ -66,11 +67,6 @@ app.get('/:slug', async(req,res)=>{
 
   const link = await Link.findOne({slug:slug});
 
-   await  Link.updateOne({slug:slug},{$set:{
-    clicks : link.clicks + 1
-   }})
-
-
   if(!link){
     return res.json({
       success:false,
@@ -79,7 +75,28 @@ app.get('/:slug', async(req,res)=>{
     })
   }
 
+  await  Link.updateOne({slug:slug},{$set:{
+    clicks : link.clicks + 1
+   }})
+
   res.redirect(link.url)
+})
+
+
+app.get('/api/links' ,async(req,res)=>{
+
+  const links = await Link.find({})
+
+
+  return res.json({
+    success:true,
+    data:links,
+    message:"Links fetched successfully"
+  })
+
+  
+  
+
 })
 
 app.listen(PORT, () => {
