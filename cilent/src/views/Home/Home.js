@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import axios from 'axios'
+import copy from './../Home/copy.png'
+import link from './../Home/link.png'
+import showToast from 'crunchy-toast';
 import LinkCard from '../../components/LinkCard/LinkCard'
 
 const Home = () => {
@@ -23,6 +26,7 @@ const loadUrl = async()=>{
 
 const copyShortUrl = () => {
   navigator.clipboard.writeText(shortURL);
+  showToast('copied ', 'success', 3000);
  
 }
 
@@ -45,9 +49,9 @@ useEffect(()=>{
 
   return (
     <div>
-      <h1 className='text-center mt-3 text-light'> QuickLinkify 🔗 </h1>
+      <h1 className='text-center text-light mt-5'> QuickLinkify 🔗 </h1>
 
-      <div className='d-flex justify-content-around'>
+      <div className='d-flex justify-content-around mt-5 flex-wrap'>
 
         <div>
           <div className='input-main-container'>
@@ -56,8 +60,13 @@ useEffect(()=>{
             <div className='d-flex flex-column m-3 mt-3 p-3'>
 
             
+                <div className='d-flex'>
 
-            <p className='fs-5'>Shorten a long URL</p>
+                    <img src={link} alt={link} className='' height="40px" width="40px"/>
+                    <p className='ms-3 fs-3 text-light'> Shorten a long URL</p>
+
+                </div>
+        
             <input type="text" className='user-input'
               value={url}
               placeholder='Enter a long link here '
@@ -79,9 +88,10 @@ useEffect(()=>{
              <div className='short-input-container'>
 
 
-             <input type="text" className='shorturl-input'
+             <input type="text" className='shorturl-input '
               value={shortURL}
               placeholder='your tiny url'
+              disabled
               onChange={(e) => {
 
                 setShortUrl(e.target.value)
@@ -89,7 +99,9 @@ useEffect(()=>{
               
               }
            
-            />   <span onClick={ copyShortUrl}>🔳</span>
+            />   
+              <img src={copy} className=' copy' onClick={ copyShortUrl} alt={copy}/>
+              
              </div>
             
 

@@ -4,9 +4,12 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 import Link from './models/link.js'
+import path from 'path';
 
 const app = express();
 app.use(express.json())
+
+const __dirname = path.resolve();
 const PORT = process.env.PORT || 8080
 
 //connect mongodb
@@ -93,11 +96,16 @@ app.get('/api/links' ,async(req,res)=>{
     data:links,
     message:"Links fetched successfully"
   })
-
-  
-  
-
 })
+
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`port running on ${PORT}`)

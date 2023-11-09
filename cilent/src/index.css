@@ -5,9 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #538dcc;
-  background-image: linear-gradient(62deg, #538dcc 0%, #ae8bd6 100%);
-  
+  /* background-color: #A9C9FF;
+background-image: linear-gradient(180deg, #A9C9FF 10%, #FFBBEC 100%); */
+background-image: url('https://img.freepik.com/free-vector/gradient-black-background-with-cubes_23-2149177091.jpg?size=626&ext=jpg&ga=GA1.1.1610615217.1696656639&semt=ais');
+background-size: cover;
+background-repeat: no-repeat;
+
+
 }
 
 code {

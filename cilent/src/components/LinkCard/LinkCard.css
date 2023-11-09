@@ -1,8 +1,19 @@
 .linkCard-cantainer{
-    background-color: white;
+    /* background-color: white; */
     padding: 12px 15px;
-    border-radius: 5px;
-    margin: 10px;
+    border-radius: 15px;
+    margin: 20px;
     width: 700px;
+    color: #fff;
+    box-shadow: 0 0 5px white;
   
+}
+
+.url{
+    word-wrap    : break-word;
+    /* overflow-wrap: break-word; */
+}
+
+.click{
+    color: rgb(8, 164, 8);
 }
